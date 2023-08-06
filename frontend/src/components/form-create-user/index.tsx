@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, SyntheticEvent } from "react";
 
 export const CreateUser = () => {
   const [user, setUser] = useState({
@@ -15,6 +15,32 @@ export const CreateUser = () => {
       [name]: value,
     }));
   };
+
+  // const handleFileChange = (e: SyntheticEvent) => {
+  //   const { target } = e;
+  //   //@ts-ignore
+  //   const file = target.files[0];
+
+  //   const formData = new FormData();
+  //   formData.append("file", file);
+
+  //   console.log("File selected:", file);
+  //   console.log("FormData:", formData);
+
+  //   formData.append("fileName", file.name);
+  //   const url = "http://localhost:3001/upload";
+  //   const config = {
+  //     method: "POST",
+  //     body: formData,
+  //   };
+  //   fetch(url, config)
+  //     .then((res) => {
+  //       console.log("File successfully uploaded");
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error uploading file:", error);
+  //     });
+  // };
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -112,6 +138,7 @@ export const CreateUser = () => {
                 name="avatar"
                 type="file"
                 className="text-gray-600 text-sm text-end ml-3"
+                // onChange={handleFileChange}
                 value={user.avatar}
                 onChange={handleChange}
               />
